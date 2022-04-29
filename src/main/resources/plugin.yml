@@ -1,0 +1,9 @@
+name: Minigames
+main: Minigames
+version: 1.0.0
+api-version: 1.13
+commands:
+  play:
+    description: used to play games!
+    usage: /<command>
+    permission: minigames.commands.play
