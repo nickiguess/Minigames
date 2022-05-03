@@ -13,12 +13,14 @@ public class PlayCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            switch (args[1]) {
-                case "tictactoe":
-                    TicTacToe ticTacToe = new TicTacToe(player);
-                    break;
-                default:
-                    Bukkit.broadcastMessage("&4&l&o[&c&L&oMinigames&4&l&o] &c&l» &e&LThis game does not exist!");
+            if (args.length != 0) {
+                switch (args[0]) {
+                    case "tictactoe":
+                        TicTacToe ticTacToe = new TicTacToe(player);
+                        break;
+                    default:
+                        Bukkit.broadcastMessage("§4§l§o[§c§L§oMinigames§4§l§o] §c§l§o» §e§L§oThis game does not exist!");
+                }
             }
             return true;
         } else {

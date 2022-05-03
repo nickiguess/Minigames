@@ -11,6 +11,7 @@ public class Minigames extends JavaPlugin {
 
         this.getCommand("play").setExecutor(new PlayCommand());
 
+        getServer().getPluginManager().registerEvents(new EventListener(), this);
     }
 
     // Fired when plugin is disabled
