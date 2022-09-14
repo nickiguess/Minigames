@@ -18,6 +18,18 @@ public class TicTacToe {
     protected static String name = "Tic Tac Toe";
     protected Inventory gameInventory;
 
+    public int topLeft;
+    public int midLeft;
+    public int bottomLeft;
+    public int topMid;
+    public int center;
+    public int bottomMid;
+    public int topRight;
+    public int midRight;
+    public int bottomRight;
+
+    public int playerRound;
+
     public TicTacToe(Player player) {
 
         gameInventory = Bukkit.createInventory(player, size, name);
@@ -25,6 +37,18 @@ public class TicTacToe {
         gameInventory = fillInventory(gameInventory);
 
         player.openInventory(gameInventory);
+
+        int topLeft = -1;
+        int midLeft = -1;
+        int bottomLeft = -1;
+        int topMid = -1;
+        int center = -1;
+        int bottomMid = -1;
+        int topRight = -1;
+        int midRight = -1;
+        int bottomRight = -1;
+
+        playerRound = 0;
 
     }
 
