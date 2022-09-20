@@ -7,8 +7,6 @@ import org.bukkit.entity.Player;
 
 public class PlayCommand implements CommandExecutor {
 
-
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
@@ -16,8 +14,17 @@ public class PlayCommand implements CommandExecutor {
             if (args.length != 0) {
                 switch (args[0]) {
                     case "tictactoe":
-                        TicTacToe ticTacToe = new TicTacToe(player);
-                        break;
+                        if (args[1] != null) {
+                            if (Bukkit.getPlayer(args[1]) != null) {
+                                TicTacToe ticTacToe = new TicTacToe();
+                                ticTacToe.TicTacToeStart(player, sender.getName(), args[1]);
+                                break;
+                            } else {
+                                Bukkit.broadcastMessage("§4§l§o[§c§L§oMinigames§4§l§o] §c§l§o» §e§L§oThat player is not online!");
+                            }
+                        } else {
+                            Bukkit.broadcastMessage("§4§l§o[§c§L§oMinigames§4§l§o] §c§l§o» §e§L§oYou must challenge another player!");
+                        }
                     default:
                         Bukkit.broadcastMessage("§4§l§o[§c§L§oMinigames§4§l§o] §c§l§o» §e§L§oThis game does not exist!");
                 }
